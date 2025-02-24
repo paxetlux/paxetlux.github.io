@@ -1,0 +1,209 @@
+/* Define CSS Variable for Font */
+:root {
+  --custom-font: "Montserrat", Arial, sans-serif;
+}
+
+/* Apply the Custom Font Globally */
+body {
+  font-family: var(--custom-font);
+  background-color: #000;
+  color: white;
+  margin: 0;
+}
+
+/* Navbar Styling (unchanged) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: transparent;
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links .nav-link {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.navbar-links .nav-link:hover {
+  color: #3d3d3d;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+/* Section Styling */
+section {
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: center;
+  color: white; /* Changed from var(--white) since it’s undefined */
+  overflow: hidden;
+  padding-top: 5rem; /* Remove rem unit inconsistency */
+  padding-left: 12rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1; /* Ensures overlay is behind content but above background */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Ensures content is above overlay */
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.blinking-dot {
+  display: inline-block;
+  animation: blink 1s infinite; /* Blinking animation */
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0; /* Dot disappears during half the cycle */
+  }
+}
+
+/* Legal Section */
+.legal {
+  position: fixed; /* Changed to fixed to stick to the bottom */
+  bottom: 0; /* Sticks to the bottom of the viewport */
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  padding: 20px;
+  z-index: 10; /* Ensure it stays above other content */
+}
+
+.legal-content {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* Maintains spacing between copyright and links */
+  gap: 2rem;
+}
+
+.legal-content p {
+  margin: 0;
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: #ffffff;
+  line-height: 1.5;
+  flex-shrink: 1;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+}
+
+.legal-links a {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  color: #666;
+  text-decoration: none;
+  padding: 0.5rem;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+  color: #333;
+}
+
+/* Canvas Styling (unchanged) */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.cookie-popup {
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 400px;
+  z-index: 9999; /* Increased z-index */
+  font-size: 14px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-popup button {
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#accept-cookies {
+  background: var(--dark-blue);
+}
+
+#accept-cookies:hover {
+  background: #8d8d8d;
+}
+
+#decline-cookies {
+  background: #555;
+}
+
+#decline-cookies:hover {
+  background: #777;
+}

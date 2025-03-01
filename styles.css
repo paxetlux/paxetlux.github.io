@@ -1,44 +1,49 @@
 /* Define CSS Variable for Font */
 :root {
   --custom-font: "Montserrat", Arial, sans-serif;
+  --dark-blue: #1a2b5e; /* Define dark-blue since it was used but undefined */
 }
 
-/* Apply the Custom Font Globally */
+/* Mobile-First Base Styles */
 body {
   font-family: var(--custom-font);
   background-color: #000;
   color: white;
   margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Navbar Styling (unchanged) */
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  padding: 1rem;
   background-color: transparent;
+  position: relative;
 }
 
-.navbar-brand {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
+.navbar-brand .logo-img {
+  height: 60px; /* Smaller default for mobile */
+  width: auto;
+}
+
+.hamburger {
+  display: none; /* Hidden by default, shown on mobile */
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .navbar-links {
   display: flex;
-  gap: 25px;
+  gap: 15px;
 }
 
 .navbar-links .nav-link {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 10px 15px;
+  padding: 8px 12px;
   text-decoration: none;
   text-transform: uppercase;
   transition: all 0.3s ease;
@@ -52,7 +57,7 @@ body {
 
 /* Section Styling */
 section {
-  padding: 100px 20px;
+  padding: 50px 15px; /* Reduced padding for mobile */
   text-align: center;
   position: relative;
   z-index: 2;
@@ -62,15 +67,14 @@ section {
 .hero {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 50vh; /* Reduced height for mobile */
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center; /* Centered for mobile */
   text-align: center;
-  color: white; /* Changed from var(--white) since it’s undefined */
+  color: white;
   overflow: hidden;
-  padding-top: 5rem; /* Remove rem unit inconsistency */
-  padding-left: 12rem;
+  padding: 2rem 1rem;
 }
 
 .hero-overlay {
@@ -79,77 +83,75 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1; /* Ensures overlay is behind content but above background */
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2; /* Ensures content is above overlay */
+  z-index: 2;
+  max-width: 90%; /* Prevent overflow on small screens */
 }
 
 .hero-content h1 {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Smaller default for mobile */
   font-weight: 600;
   margin: 0;
+  line-height: 1.4;
 }
 
 .blinking-dot {
   display: inline-block;
-  animation: blink 1s infinite; /* Blinking animation */
+  animation: blink 1s infinite;
 }
 
 @keyframes blink {
   50% {
-    opacity: 0; /* Dot disappears during half the cycle */
+    opacity: 0;
   }
 }
 
 /* Legal Section */
 .legal {
-  position: fixed; /* Changed to fixed to stick to the bottom */
-  bottom: 0; /* Sticks to the bottom of the viewport */
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
   background-color: #000;
   text-align: center;
   border-top: 1px solid #e0e0e0;
-  padding: 20px;
-  z-index: 10; /* Ensure it stays above other content */
+  padding: 10px;
+  z-index: 10;
 }
 
 .legal-content {
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Stack on mobile */
   align-items: center;
-  justify-content: space-between; /* Maintains spacing between copyright and links */
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .legal-content p {
   margin: 0;
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-size: 0.75rem;
   color: #ffffff;
   line-height: 1.5;
-  flex-shrink: 1;
 }
 
 .legal-links {
   display: flex;
-  align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  flex-wrap: nowrap;
-  flex-shrink: 0;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .legal-links a {
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  font-size: 0.75rem;
   color: #666;
   text-decoration: none;
-  padding: 0.5rem;
-  white-space: nowrap;
+  padding: 0.25rem;
   transition: color 0.2s ease;
 }
 
@@ -157,39 +159,38 @@ section {
   color: #333;
 }
 
-/* Canvas Styling (unchanged) */
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
+/* Cookie Popup */
 .cookie-popup {
   position: fixed;
-  bottom: 80px;
-  left: 20px;
+  bottom: 60px;
+  left: 10px;
+  right: 10px;
   background: rgba(0, 0, 0, 0.9);
   color: white;
-  padding: 15px 20px;
+  padding: 10px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  max-width: 400px;
-  z-index: 9999; /* Increased z-index */
-  font-size: 14px;
+  gap: 10px;
+  max-width: 90%;
+  z-index: 9999;
+  font-size: 12px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
 }
 
 .cookie-popup button {
   border: none;
   color: white;
-  padding: 8px 15px;
-  margin-left: 10px;
+  padding: 6px 12px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 12px;
 }
 
 #accept-cookies {
@@ -206,4 +207,102 @@ canvas {
 
 #decline-cookies:hover {
   background: #777;
+}
+
+/* Canvas Styling */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Show hamburger on mobile */
+  }
+
+  .navbar-links {
+    display: none; /* Hidden by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0
+    background-color: transparent;
+    padding: 1rem;
+    z-index: 10;
+  }
+
+  .navbar-links.active {
+    display: flex; /* Show when toggled */
+  }
+
+  .navbar-brand .logo-img {
+    height: 40px; /* Smaller default for mobile */
+    width: auto;
+  }
+
+  .navbar-links .nav-link {
+    font-size: 1.1rem;
+    padding: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.2rem; /* Even smaller for very small screens */
+  }
+
+  .legal-content {
+    padding: 0 10px;
+  }
+}
+
+.cookie-popup {
+  bottom: 90px;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 769px) {
+  .navbar {
+    padding: 20px 3rem;
+  }
+
+  .navbar-links {
+    gap: 25px;
+  }
+
+  .navbar-links .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .legal-content {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 80%;
+  }
+
+  .legal-content p,
+  .legal-links a {
+    font-size: 0.875rem;
+  }
+
+  .cookie-popup {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 400px;
+    bottom: 80px;
+    left: 20px;
+    font-size: 14px;
+  }
+
+  .cookie-popup button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
 }

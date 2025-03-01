@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HA10 | Data-driven property insights.</title>
-    <!-- Link to external CSS file -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HF65EDX3T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-8HF65EDX3T');
-</script>
-
-
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HF65EDX3T"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8HF65EDX3T');
+    </script>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar">
         <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="Company Logo" style="height: 150px;">
+            <img src="images/logo.png" alt="Company Logo" class="logo-img">
         </a>     
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="navbar-links">
-
             <a href="https://www.londonpropertylab.com" target="_blank" class="nav-link">Solutions</a>
             <a href="mailto:contact@londonpropertylab.com" class="nav-link">Contact</a>
         </div>
@@ -38,33 +35,33 @@
     <section class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Transforming property decisions with powerful proptech tools and insights .</h1>
+            <h1>Transforming property decisions with powerful proptech tools and insights.</h1>
         </div>
     </section>
 
-<!-- Legal Section -->
-<section class="legal">
-    <div class="legal-content">
-        <p>Copyright © HA10 LTD - 2025 - All rights reserved. Company registered in England and Wales with company number 16049292.</p>
-        <div class="legal-links">
-            <a href="cookie-policy.html"target="_blank" rel="noopener noreferrer">Cookie Policy</a>
-            <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
-            <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-            <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+    <!-- Legal Section -->
+    <section class="legal">
+        <div class="legal-content">
+            <p>Copyright © HA10 LTD - 2025 - All rights reserved. Company registered in England and Wales with company number 16049292.</p>
+            <div class="legal-links">
+                <a href="cookie-policy.html" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+                <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+                <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+                <a href="disclaimer.html" target="_blank" rel="noopener noreferrer">Disclaimer</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cookie Popup -->
+    <div id="cookie-popup" class="cookie-popup">
+        <p>We use cookies on our website to see how you interact with it. By accepting, you agree to our use of such cookies.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies">Accept</button>
+            <button id="decline-cookies">Decline</button>
         </div>
     </div>
-</section>
-
 
     <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
-
-    <div id="cookie-popup" class="cookie-popup">
-        <p>We use cookies on our website to see how you interact with it. By accepting, you agree to our use of such cookies.</p>
-        <button id="accept-cookies">Accept</button>
-        <button id="decline-cookies">Decline</button>
-      </div>
-
-
 </body>
 </html>

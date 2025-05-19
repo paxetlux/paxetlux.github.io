@@ -92,7 +92,7 @@ window.addEventListener("resize", () => {
 
 // Typing Animation and Hamburger Menu
 document.addEventListener('DOMContentLoaded', () => {
-    const text = "Transforming property decisions with powerful proptech tools and insights.";
+    const text = "Turn conversations into smarter outcomes powered by always-on intelligence.";
     const heroText = document.querySelector('.hero-content h1');
     let index = 0;
 

@@ -119,3 +119,19 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('active');
     });
 });
+
+document.getElementById('accept-cookies').addEventListener('click', function () {
+  document.getElementById('cookie-popup').style.display = 'none';
+  localStorage.setItem('cookiesAccepted', 'true');
+});
+
+document.getElementById('decline-cookies').addEventListener('click', function () {
+  document.getElementById('cookie-popup').style.display = 'none';
+  localStorage.setItem('cookiesAccepted', 'false');
+});
+
+window.addEventListener('load', function () {
+  if (localStorage.getItem('cookiesAccepted') !== null) {
+    document.getElementById('cookie-popup').style.display = 'none';
+  }
+});

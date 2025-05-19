@@ -60,6 +60,27 @@
         </div>
     </div>
 
+    <script>
+  document.getElementById('accept-cookies').addEventListener('click', function () {
+    document.getElementById('cookie-popup').style.display = 'none';
+    // Optional: Save cookie preference
+    localStorage.setItem('cookiesAccepted', 'true');
+  });
+
+  document.getElementById('decline-cookies').addEventListener('click', function () {
+    document.getElementById('cookie-popup').style.display = 'none';
+    // Optional: Save decline preference
+    localStorage.setItem('cookiesAccepted', 'false');
+  });
+
+  // Optional: Show the popup only if preference hasn't been saved
+  window.addEventListener('load', function () {
+    if (localStorage.getItem('cookiesAccepted') !== null) {
+      document.getElementById('cookie-popup').style.display = 'none';
+    }
+  });
+</script>
+
     <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
 </body>
